@@ -32,7 +32,7 @@
   }
 ```
 
-- 文本组件
+### 文本组件
   - Text('文本内容',可选参数)
   - 可选参数
     - textAlign 文本应如何水平对齐
@@ -49,7 +49,7 @@
     - textHeightBehavior 定义段落如何将 TextStyle.height 应用于第一行的上升沿和最后一行的下降沿
     - textScaleFactor 每个逻辑像素的字体像素数
     - textWidthBasis 定义如何测量渲染文本的宽度
-- Container
+### Container
 
   - 属性
     - child
@@ -100,7 +100,7 @@
   }
 
   ```
-- Image
+### Image
   - 网络图片
     - Image.network(src)
   - 本地图片
@@ -113,7 +113,7 @@
         - images/ddd.webp
         - images/2.x/ddd.webp
         - images/3.x/ddd.webp
-- 列表 ListView
+### 列表 ListView
   - 属性
     - children 是list 里面都是组件 widget
       - ListTile
@@ -122,9 +122,70 @@
         - subtitle：二级标题
         - trailing：排列在右边
     - padding:EdgeInsets.all(),
-    - scrollDirection：Axisj.horizontal,
+    - scrollDirection：Axis.horizontal,
       - 默认是竖直方向
       - 如果是水平方向，那么竖直方向充满父级，如果是竖直方向，水平是充满父级
   - 动态列表
     - for
     - ListView.Builder
+### 网格列表 GridView
+- 静态 GridView.count
+- 动态
+  - for
+  - GridView.builder
+### 布局组件
+- 基础组件
+  - 文本
+  - 图片
+  - Icon
+  - RaisedButton 悬浮按钮
+  - FlatButton 扁平按钮
+  - OutlineButton 边框按钮
+  - IconButton 图标按钮
+  - Switch 开关
+  - Checkbox 选择框
+  - TextField 输入框
+  - LinearProgressIndicator 线性的进度条
+  - CircularProgressIndicator 圆形的进度
+- 容器类
+  - Container
+- 布局类
+  - Row 水平组件
+    - 属性 
+      - children list
+      - mainAxisAlignment:主轴 横轴
+        - MainAxisAlignment.center
+      - crossAxisAlignment 纵方向的排列
+        - crossAxisAlignment: CrossAxisAlignment.start
+  - Column 竖直方向
+  - Flex
+    - Row 和 Column是继承于Flex组件
+    - direction
+  - Expanded
+    - flex 份数
+    - 其他的属性和Row 都一样
+  - Wrap
+    - Row组件默认就是一行，超出范围就会报错，有的时候不确定会不会超出，Wrap
+  - Flow
+  - Stack 层叠组件
+    - children
+    - aligment 位置
+      - 把所有的子级全部定到某个位置
+  - Stack + Align 可以实现分开控制子级的位置
+  - Stack + Positioned 可以实现分开控制
+  - Positioned
+  - Align
+### 基础组件
+  - 线性进度条 LinearProgressIndicator
+  - 圆环进度条 CircularProgressIndicator
+  - 输入框 TextField
+### 页面跳转传参
+### 事件 ontap
+### 生命周期
+### apk打包
+- ios
+- android
+  - 
+  -  
+  - flutter build apk
+  - apk路径：build/app/outputs/apk/release/

@@ -3,7 +3,7 @@ import 'dart:math';
 import 'package:app/mainText.dart';
 import 'package:flutter/material.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(MaterialApp(home: OneApp()));
 
 class MyApp extends StatelessWidget {
   @override
@@ -11,44 +11,83 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'home',
       home: Scaffold(
+          appBar: AppBar(
+            title: const Text('第一页'),
+          ),
+          body: Center(
+            // child: ElevatedButton(onPressed: () {}, child: const Text('按钮')),
+            // child: OutlinedButton(onPressed: () {}, child: const Text('按钮')),
+            child: ElevatedButton.icon(
+                onPressed: () {},
+                icon: const Icon(Icons.search),
+                label: const Text('带图标的普通按钮')),
+
+            // child: TextField(
+            //   autofocus: false,
+            //   decoration: InputDecoration(
+            //       labelText: '用户名',
+            //       hintText: '请输入用户名',
+            //       prefixIcon: Icon(Icons.search)),
+            // ),
+
+            //
+            // child: LinearProgressIndicator(
+            //   backgroundColor: Colors.black,
+            //   value: .3,
+            // ),
+
+            // 圆环进度条
+            // child: CircularProgressIndicator(
+            //   backgroundColor: Colors.red,
+            //   value: .2,
+            // ),
+          )),
+    );
+  }
+}
+
+class OneApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
         appBar: AppBar(
-          title: const Text('image'),
+          title: const Text('第一页'),
         ),
         body: Center(
-          child: Container(
-            width: 400,
-            // height: 100,
-            child:ListView(
-              children:<Widget>[
-                ListTile(
-                  leading:Icon(Icons.home,color:Colors.red),
-                  title: Text('一级标题1'),
-                  subtitle: Text('二级标题1'),
-                  trailing:Icon(Icons.search),
-                ),
-                ListTile(
-                  leading:Icon(Icons.search,color:Colors.red),
-                  title: Text('一级标题2'),
-                  subtitle: Text('二级标题2'),
-                  trailing:Icon(Icons.search),
-                ),
-                ListTile(
-                  leading:Icon(Icons.search,color:Colors.red),
-                  title: Text('一级标题3'),
-                  subtitle: Text('二级标题3'),
-                  trailing: Image.network('https://dj-1302809963.file.myqcloud.com/uploads/userfiles/18/images/pageimg/20220708/18-220FR0542G.jpg'),
-                ),
-                ListTile(
-                  leading:Icon(Icons.home,color:Colors.red),
-                  title: Text('一级标题4'),
-                  subtitle: Text('二级标题4'),
-                  trailing:Icon(Icons.search),
-                ),
-              ]
-            )
-          ),
+          child: ElevatedButton.icon(
+              onPressed: () {
+                // 跳转下一页
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => TwoPage('a'))); // 跳转 传参
+              },
+              icon: const Icon(Icons.search),
+              label: const Text('带图标的普通按钮')),
+        ));
+  }
+}
+
+class TwoPage extends StatelessWidget {
+  late String param;
+  TwoPage(this.param);
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        appBar: AppBar(
+          title: const Text('第二页'),
         ),
-      ),
-    );
+        body: Center(
+          // child: ElevatedButton(onPressed: () {}, child: const Text('按钮')),
+          // child: OutlinedButton(onPressed: () {}, child: const Text('按钮')),
+          child: ElevatedButton.icon(
+              onPressed: () {
+                print(param);
+                // 返回上一页
+                Navigator.pop(context);
+              },
+              icon: const Icon(Icons.search),
+              label: const Text('带图标的普通按钮')),
+        ));
   }
 }
