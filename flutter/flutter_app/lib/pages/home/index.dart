@@ -25,6 +25,18 @@ class HomePage extends StatelessWidget {
               },
               child: Text(Routes.login),
             ),
+            OutlinedButton(
+              onPressed: () {
+                Navigator.pushNamed(context, '/jjdjd');
+              },
+              child: Text('404'),
+            ),
+            OutlinedButton(
+              onPressed: () {
+                Navigator.pushNamed(context, '/room/333');
+              },
+              child: Text('详情页'),
+            ),
           ],
         ),
       ),

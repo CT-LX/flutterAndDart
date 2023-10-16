@@ -9,6 +9,7 @@ import 'package:flutter/material.dart';
 class Application extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    // 挂载路由
     FluroRouter router = FluroRouter();
     Routes.defineRoutes(router);
     return MaterialApp(
