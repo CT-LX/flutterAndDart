@@ -1,9 +1,10 @@
 import 'dart:math';
 
+import 'package:app/application.dart';
 import 'package:app/mainText.dart';
 import 'package:flutter/material.dart';
 
-void main() => runApp(MaterialApp(home: OneApp()));
+void main() => runApp(Application());
 
 class MyApp extends StatelessWidget {
   @override
@@ -43,51 +44,5 @@ class MyApp extends StatelessWidget {
             // ),
           )),
     );
-  }
-}
-
-class OneApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-          title: const Text('第一页'),
-        ),
-        body: Center(
-          child: ElevatedButton.icon(
-              onPressed: () {
-                // 跳转下一页
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => TwoPage('a'))); // 跳转 传参
-              },
-              icon: const Icon(Icons.search),
-              label: const Text('带图标的普通按钮')),
-        ));
-  }
-}
-
-class TwoPage extends StatelessWidget {
-  late String param;
-  TwoPage(this.param);
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-          title: const Text('第二页'),
-        ),
-        body: Center(
-          // child: ElevatedButton(onPressed: () {}, child: const Text('按钮')),
-          // child: OutlinedButton(onPressed: () {}, child: const Text('按钮')),
-          child: ElevatedButton.icon(
-              onPressed: () {
-                print(param);
-                // 返回上一页
-                Navigator.pop(context);
-              },
-              icon: const Icon(Icons.search),
-              label: const Text('带图标的普通按钮')),
-        ));
   }
 }
