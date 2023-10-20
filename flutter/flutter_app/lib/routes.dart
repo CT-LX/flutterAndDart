@@ -1,4 +1,4 @@
-import 'package:app/pages/home/index.dart';
+import 'package:app/pages/bottom_tab/index.dart';
 import 'package:app/pages/login.dart';
 import 'package:app/pages/room_detail/index.dart';
 import 'package:app/pages/not_found.dart';
@@ -6,6 +6,8 @@ import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
 
 class Routes {
+  static FluroRouter router = FluroRouter();
+
   // 1.定义路由名称
   static String home = '/';
   static String login = '/login';
@@ -36,7 +38,7 @@ class Routes {
   });
 
   // 3.编写函数 defineRoutes 关联路由名称和处理函数
-  static void defineRoutes(FluroRouter router) {
+  static void defineRoutes() {
     router.define(home, handler: _homeHandler);
     router.define(login, handler: _loginHandler);
     router.define(roomDetail, handler: _roomDetailHandler);

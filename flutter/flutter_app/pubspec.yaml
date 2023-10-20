@@ -90,5 +90,8 @@ flutter:
   # 图片资源
   assets:
     - images/1.jpg
+    - images/login-bg.png
     - images/2.x/1.jpg
+    - images/2.x/login-bg.png
     - images/3.x/1.jpg
+    - images/3.x/login-bg.png
