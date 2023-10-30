@@ -77,7 +77,7 @@ class _LoginPageState extends State<LoginPage> {
                         //     color: Color.fromRGBO(204, 204, 204, 1)
                         //     )
                       ),
-                      prefixIcon: Icon(Icons.lock),
+                      prefixIcon: Icon(Icons.perm_identity),
                       hintText: '请输入手机号',
                       suffix: SizedBox(
                           child: _countdowndisplay
