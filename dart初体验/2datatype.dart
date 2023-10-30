@@ -239,7 +239,8 @@ void mainSet() {
   set2.add('a');
   print(set2);
 
-  Set<String> set3 = Set(); // ***
+  Set<String> set3 = Set();
+  Set<String> set6 = {'1', '2', 'c'}; // ***
   // 数据类型
 
   var set4 = Set<int>();
@@ -307,7 +308,7 @@ void mainOther() {
   print(list2);
   print(list2.toList()); // 转成List 集合
 
-  // where 类似filter
+  // where 类似filter,  返回对满足条件的参数，组成一个新的集合
   var list3 = list1.where((element) {
     return element > 8;
   });

@@ -58,14 +58,12 @@ class _HomePageState extends State<StatefulWidget> {
 
   @override
   Widget build(BuildContext context) {
-    String titleLabel = tabMapList[_selectedIndex]['label'];
+    // String titleLabel = tabMapList[_selectedIndex]['label'];
     return Scaffold(
-      appBar: AppBar(
-        title: Text(titleLabel),
-      ),
-      body: SafeArea(
-        child: tabViewList.elementAt(_selectedIndex),
-      ),
+      // appBar: AppBar(
+      //   title: Text(titleLabel),
+      // ),
+      body: tabViewList.elementAt(_selectedIndex),
       bottomNavigationBar: BottomNavigationBar(
         selectedFontSize: 12,
         type: BottomNavigationBarType.fixed,

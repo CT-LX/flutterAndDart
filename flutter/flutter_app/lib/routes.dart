@@ -9,7 +9,7 @@ class Routes {
   static FluroRouter router = FluroRouter();
 
   // 1.定义路由名称
-  static String home = '/';
+  static String home = '/home';
   static String login = '/login';
   static String roomDetail = '/room/:roomId';
 

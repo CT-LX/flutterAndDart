@@ -12,7 +12,6 @@
   - test 就是测试文件的目录
   - pubspec.yaml 项目的配置文件
 - 快捷键
-
   - r:hot reload
   - R:hot restart
   - q: 退出（终止设备上的应用程序
@@ -24,6 +23,9 @@
 
 - import 'package:flutter/material.dart';
   - material 一个 UI 库
+- flutter icon 图标
+  - https://www.fluttericon.com/
+  - https://fonts.google.com/icons
 - 入口方法
 
 ```dart
@@ -125,6 +127,7 @@
     - scrollDirection：Axis.horizontal,
       - 默认是竖直方向
       - 如果是水平方向，那么竖直方向充满父级，如果是竖直方向，水平是充满父级
+    - 支持滚动
   - 动态列表
     - for
     - ListView.Builder
@@ -179,6 +182,8 @@
   - 线性进度条 LinearProgressIndicator
   - 圆环进度条 CircularProgressIndicator
   - 输入框 TextField
+  - ElevatedButton 按钮
+  - OutlinedButton
 ### 页面跳转传参
 ### 事件 ontap
 ### 生命周期

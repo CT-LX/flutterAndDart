@@ -3,7 +3,6 @@
 import 'package:app/pages/bottom_tab/index.dart';
 import 'package:app/pages/login.dart';
 import 'package:app/routes.dart';
-import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
 
 class Application extends StatelessWidget {
@@ -12,7 +11,7 @@ class Application extends StatelessWidget {
     // 挂载路由
     Routes.defineRoutes();
     return MaterialApp(
-      home: HomePage(),
+      home: LoginPage(),
       onGenerateRoute: Routes.router.generator,
       // initialRoute: Routes.login,
     );
