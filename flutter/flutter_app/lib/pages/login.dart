@@ -3,6 +3,7 @@ import 'dart:core';
 
 import 'package:app/routes.dart';
 import 'package:flutter/material.dart';
+import '../utils/dio_http.dart';
 import '../utils/reg.dart';
 
 class LoginPage extends StatefulWidget {
@@ -167,13 +168,25 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
-  void sendNum() {
+  // 发送短信
+  Future<void> sendNum() async {
     // 手机号验证
-    // 发送短信
-    // 显示倒计时
-    openTimeFn();
+    if (realTelReg(this._telPhone)) {
+      var params = {'mobile': this._telPhone};
+      try {
+        var response =
+            await DioHttp.of(context).post('/hxworker/sendCode', params);
+        print(response.data.toString());
+      } catch (e) {
+        print(e.toString());
+      }
+      openTimeFn();
+    }
   }
 
+/**
+ * 显示倒计时
+ */
   void openTimeFn() {
     const duration = Duration(seconds: 1);
     _call(timer) {

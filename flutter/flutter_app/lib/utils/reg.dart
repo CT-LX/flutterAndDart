@@ -1,5 +1,5 @@
 bool realTelReg(String str) {
-  return RegExp(r"^\d{7,11}$").hasMatch(str);
+  return RegExp(r"^\d{11}$").hasMatch(str);
 }
 
 bool sixNumReg(String str) {
