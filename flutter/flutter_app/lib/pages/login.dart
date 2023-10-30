@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:convert';
 import 'dart:core';
 
 import 'package:app/routes.dart';
@@ -173,7 +174,11 @@ class _LoginPageState extends State<LoginPage> {
     // 手机号验证
     if (realTelReg(this._telPhone)) {
       var params = {'mobile': this._telPhone};
+
       // var response = await DioHttp.of(context).post('/hxworker/sendCode', params);
+      // var resString = json.decode(res.toString());
+      // print(resString); //这个转成了字符串
+
       DioHttp.of(context).postHttp('/hxworker/sendCode', params,
           onSuccess: (data) {
         openTimeFn();

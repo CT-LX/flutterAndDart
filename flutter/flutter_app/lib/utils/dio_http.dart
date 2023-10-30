@@ -79,7 +79,7 @@ class DioHttp {
     Options options = Options(headers: {'Authorization': token});
     return _client.post(
       path,
-      data: params,
+      queryParameters: params,
       options: options,
     );
   }
@@ -92,7 +92,7 @@ class DioHttp {
   }) async {
     try {
       Response response;
-      response = await _client.post(url, data: queryParameters);
+      response = await _client.post(url, queryParameters: queryParameters);
       var responseData = response.data;
       print(responseData.toString());
       if (responseData['statusCode'] == 200) {
