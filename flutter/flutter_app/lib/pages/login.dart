@@ -18,12 +18,12 @@ class _LoginPageState extends State<LoginPage> {
   late String _telPhone = '';
   late String _code = '';
   int _times = 60;
-  late final Timer _timer;
+  Timer? _timer;
   bool _countdowndisplay = false;
 
   @override
   void dispose() {
-    _timer.cancel();
+    closeTimeFn();
     super.dispose();
   }
 
@@ -178,37 +178,46 @@ class _LoginPageState extends State<LoginPage> {
       // var response = await DioHttp.of(context).post('/hxworker/sendCode', params);
       // var resString = json.decode(res.toString());
       // print(resString); //这个转成了字符串
-
-      DioHttp.of(context).postHttp('/hxworker/sendCode', params,
-          onSuccess: (data) {
-        openTimeFn();
-        setState(() {
-          _countdowndisplay = true;
-        });
-        print(data);
-      }, onError: (err) {
-        print(err);
+      openTimeFn();
+      setState(() {
+        _countdowndisplay = true;
       });
+      // DioHttp.of(context).postHttp('/hxworker/sendCode', params,
+      //     onSuccess: (data) {
+      //   openTimeFn();
+      //   setState(() {
+      //     _countdowndisplay = true;
+      //   });
+      //   print(data);
+      // }, onError: (err) {
+      //   print(err);
+      // });
     }
   }
 
-/**
- * 显示倒计时
- */
+  /// 显示倒计时
   void openTimeFn() {
-    const duration = Duration(seconds: 1);
+    closeTimeFn();
     _call(timer) {
+      print(_times);
       setState(() {
         _times--;
       });
       if (_times < 1) {
         setState(() {
           _countdowndisplay = false;
+          _times = 60;
         });
-        _timer.cancel();
+        closeTimeFn();
       }
     }
 
-    _timer = Timer.periodic(duration, _call);
+    _timer = Timer.periodic(const Duration(seconds: 1), _call);
+  }
+
+  void closeTimeFn() {
+    if (_timer != null) {
+      _timer?.cancel();
+    }
   }
 }
