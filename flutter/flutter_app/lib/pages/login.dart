@@ -173,14 +173,17 @@ class _LoginPageState extends State<LoginPage> {
     // 手机号验证
     if (realTelReg(this._telPhone)) {
       var params = {'mobile': this._telPhone};
-      try {
-        var response =
-            await DioHttp.of(context).post('/hxworker/sendCode', params);
-        print(response.data.toString());
-      } catch (e) {
-        print(e.toString());
-      }
-      openTimeFn();
+      // var response = await DioHttp.of(context).post('/hxworker/sendCode', params);
+      DioHttp.of(context).postHttp('/hxworker/sendCode', params,
+          onSuccess: (data) {
+        openTimeFn();
+        setState(() {
+          _countdowndisplay = true;
+        });
+        print(data);
+      }, onError: (err) {
+        print(err);
+      });
     }
   }
 
@@ -202,8 +205,5 @@ class _LoginPageState extends State<LoginPage> {
     }
 
     _timer = Timer.periodic(duration, _call);
-    setState(() {
-      _countdowndisplay = true;
-    });
   }
 }
